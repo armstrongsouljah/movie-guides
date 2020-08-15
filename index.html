@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+</head>
+
+<body>
+    <nav>
+        <div class="nav-wrapper blue-grey">
+            <a href="#" class="brand-logo">Movies Guide</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li id="signin"><a class="modal-trigger" href="#login_modal">Sign-In</a></li>
+                <li id="create"><a class="modal-trigger" href="#movies">View Movies</a></li>
+                <li id="create_movie"><a class="modal-trigger" href="#add_movie">Create Movie</a></li>
+                <li id="signup"><a class="modal-trigger" href="#add_user">Sign UP</a></li>
+                <li id="logout"><a href="#">Logout</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <div container>
+
+        <div class="row intro">
+            <div class="card-panel">
+                <h4>Welcome to Movie Guides</h4>
+                <p class="flow-text">Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Blanditiis ut illum autem optio eaque quam cumque architecto, doloremque voluptate consequatur
+                    harum,
+                    dolorem nam officiis dolor molestiae sed minima consectetur sint molestias incidunt? Nobis, sequi!
+                </p>
+            </div>
+        </div>
+
+        <div class="modal" id="movies">
+            <div class="modal-content">
+                <div class="row">
+                    <h4>Movies</h4>
+                    <div class="col s12">
+                        <ul class="collapsible">
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">filter_drama</i>First</div>
+                                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">place</i>Second</div>
+                                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                            </li>
+                            <li>
+                                <div class="collapsible-header"><i class="material-icons">whatshot</i>Third</div>
+                                <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal" id="login_modal">
+            <div class="modal-content">
+                <form id="login_form">
+                    <h3 class="center">Login</h3>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <input class="col s12 m6 l6 offset-m3 offset-l3 btn btn-small teal" value="Login" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal" id="add_user">
+            <div class="modal-content">
+                <form id="login_form">
+                    <h3 class="center">Add New User</h3>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="email" type="email" class="validate">
+                            <label for="email">Email</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="password" type="password" class="validate">
+                            <label for="password">Password</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <input class="col s12 m6 l6 offset-m3 offset-l3 btn btn-small teal" value="Sign Up" />
+                    </div>
+                </form>
+            </div>
+        </div>
+
+        <div class="modal" id="add_movie">
+            <div class="modal-content">
+                <form id="login_form">
+                    <h3 class="center">Add New Movie</h3>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <input id="description" type="text" class="validate">
+                            <label for="description">Description</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <textarea id="movie_details" class="materialize-textarea"></textarea>
+                            <label for="textarea1">Textarea</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <input class="col s12 m6 l6 offset-m3 offset-l3 btn btn-small teal" value="Add Movie" />
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        const $elem = (selector) => document.querySelector(selector);
+        const signIn = $elem("#signin");
+        const signUp = $elem('#signup');
+        const logOut = $elem('#logout');
+        const movieList = $elem('.movies');
+        const loginForm = $elem('#login_form');
+        const signupForm = $elem('#signup_form');
+        const intro = $elem('.intro');
+
+
+        // initialize all modals
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('.modal');
+            var collapsibles = document.querySelectorAll('.collapsible');
+            var instances = M.Modal.init(elems);
+            M.textareaAutoResize($elem('#movie_details'));
+            M.Collapsible.init(collapsibles);
+        });
+    </script>
+</body>
+
+</html>
